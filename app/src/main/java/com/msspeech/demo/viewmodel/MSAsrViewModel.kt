@@ -1,6 +1,8 @@
 package com.msspeech.demo.viewmodel
 
+import android.os.Environment
 import androidx.lifecycle.viewModelScope
+import com.microsoft.cognitiveservices.speech.PropertyId
 import com.microsoft.cognitiveservices.speech.ResultReason
 import com.microsoft.cognitiveservices.speech.SpeechConfig
 import com.microsoft.cognitiveservices.speech.SpeechRecognizer
@@ -10,6 +12,7 @@ import com.msspeech.msspeech.MicrophoneStream
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.File
 
 class MSAsrViewModel : AsrViewModel() {
     private val mLogger = Logger(javaClass)
@@ -22,6 +25,15 @@ class MSAsrViewModel : AsrViewModel() {
     private val speechConfig: SpeechConfig by lazy {
         SpeechConfig.fromSubscription(speechKey, speechRegion).apply {
             speechRecognitionLanguage = "zh-CN"
+            val dir = File(Environment.getExternalStorageDirectory(), "msspeech")
+            if (!dir.exists()){
+                dir.mkdir()
+            }
+            val file = File(dir, "${System.currentTimeMillis()}.txt")
+            if(!file.exists()){
+                file.createNewFile()
+            }
+            setProperty(PropertyId.Speech_LogFilename, file.absolutePath)
         }
     }
 
