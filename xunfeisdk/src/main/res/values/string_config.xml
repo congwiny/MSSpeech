@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appId">070efd85</string>
+    <string name="apiKey">b902791b4904530f591da07a919c9477</string>
+    <string name="apiSecret">MWFhMDBjZDMzZDUyNTk4NTlmMTRhZTI3</string>
+    <string name="awake_keyword" formatted="false" translatable="false">可心你好</string>
+    <string name="awake_keyword_tip">唤醒词：可心你好</string>
+</resources>

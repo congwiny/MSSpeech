@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">demo</string>
+
+    <string name="ivw_title">语音唤醒</string>
+    <string name="open_ivw_title">启动唤醒界面</string>
+
+    <string name="start_listen">启动</string>
+    <string name="stop_listen">停止</string>
+</resources>
